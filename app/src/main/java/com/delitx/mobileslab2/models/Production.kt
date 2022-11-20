@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Production(
     @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    val id: Int = 0,
     val year: Int,
     val mass: Int,
     val price: Int

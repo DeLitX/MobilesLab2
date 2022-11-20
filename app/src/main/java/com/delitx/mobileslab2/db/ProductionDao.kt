@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.delitx.mobileslab2.models.Production
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProductionDao {
@@ -13,11 +13,11 @@ interface ProductionDao {
     suspend fun insert(item: Production)
 
     @Query("select * from production")
-    fun getAllFlow(): StateFlow<List<Production>>
+    fun getAllFlow(): Flow<List<Production>>
 
     @Query("select * from production where mass >= 25000000")
-    fun getHarvestHigher25MFlow(): StateFlow<List<Production>>
+    fun getHarvestHigher25MFlow(): Flow<List<Production>>
 
     @Query("select Avg(price) from production")
-    fun getMeanPriceFlow(): StateFlow<Int>
+    fun getMeanPriceFlow(): Flow<Int?>
 }
